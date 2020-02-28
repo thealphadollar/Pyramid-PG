@@ -4,7 +4,12 @@ requires = [
     'pyramid',
     'paster_pastedeploy',
     'pyramid-ipython',
-    'waitress'
+    'waitress',
+    'sqlalchemy',
+    'psycopg2',
+    'pyramid_tm',
+    'transaction',
+    'zope.sqlalchemy'
 ]
 
 setup(
@@ -20,6 +25,9 @@ setup(
     entry_points = {
         'paste.app_factory': [
             'main = todo:main',
+        ],
+        'console_scripts': [
+            'initdb = todo.scripts.initializedb.main'
         ]
     }
 )
